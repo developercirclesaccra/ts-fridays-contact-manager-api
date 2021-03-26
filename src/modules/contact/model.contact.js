@@ -17,12 +17,15 @@ const ContactSchema = new Schema({
 		type: String
 	},
 	phone: {
-		type: Number,
+		type: String,
 		unique: true
 	},
-	created_date: {
-		type: Date,
-		default: Date.now
+}, {
+	timestamps: true,
+	toJSON: {
+		virtuals: true,
+		versionKey: false,
+		transform: ((doc, ret) => { delete ret._id })
 	}
 });
 
