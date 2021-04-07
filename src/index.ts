@@ -20,7 +20,7 @@ module(app);
 
 // Routes
 app.get('/', (req, res) =>
-	res.send(`🖥️ Node and Express server is running on port ${PORT}`)
+	res.send(`🖥️ Node and Express server is running on port ${config.port}`)
 );
 
 connect(config.db, {

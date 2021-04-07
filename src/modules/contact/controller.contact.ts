@@ -1,7 +1,8 @@
+import { Request, Response } from 'express';
 import Contact from './model.contact';
 
 export default class ContactController {
-	static getOne = async (req, res) => {
+	static getOne = async (req: Request, res: Response) => {
 		try {
 			const id = req.params.id;
 			const contact = await Contact.findById(id).exec();
@@ -25,7 +26,7 @@ export default class ContactController {
 		}
 	}
 
-	static getAll = async (req, res) => {
+	static getAll = async (req: Request, res: Response) => {
 		try {
 			const contacts = await Contact.find({}).exec();
 			res.json({
@@ -40,7 +41,7 @@ export default class ContactController {
 		}
 	}
 
-	static create = async (req, res) => {
+	static create = async (req: Request, res: Response) => {
 		try {
 			const contact = await Contact.create(req.body);
 	
@@ -63,7 +64,7 @@ export default class ContactController {
 		}
 	}
 
-	static update = async (req, res) => {
+	static update = async (req: Request, res: Response) => {
 		try {
 			const id = req.params.id;
 			const contact = await Contact
@@ -89,7 +90,7 @@ export default class ContactController {
 		}
 	}
 
-	static delete = async (req, res) => {
+	static delete = async (req: Request, res: Response) => {
 		try {
 			const id = req.params.id;
 			const contact = await Contact.findByIdAndDelete(id).exec();
